@@ -45,11 +45,11 @@ class Puppet::Property::VMware_Array < Puppet::Property::VMware
 
     inclusive = self.class.inclusive == :true
     # Allow resources to override inclusive behavior
-    inclusive = self.resource.value('inclusive') == true unless self.resource.value('inclusive').nil?
+    inclusive = self.resource.value('inclusive') == :true unless self.resource.value('inclusive').nil?
 
     preserve = self.class.preserve == :true
     # Allow resources to override preserve behavior
-    preserve = self.resource.value('preserve') == true unless self.resource.value('preserve').nil?
+    preserve = self.resource.value('preserve') == :true unless self.resource.value('preserve').nil?
 
     if inclusive
       case self.class.sort
