@@ -41,6 +41,7 @@ describe Puppet::Property::VMware_Array do
 
   it 'should by return false for non-inclusive subset when resource override inclusive true' do
     @resource.stubs(:value){'inclusive'}.returns(true)
+    @resource.stubs(:value){'preserve'}.returns(false)
     @property.should = ['a', 'b']
     @property.class.inclusive = :false
     @property.insync?(['a', 'b', 'd']).should == false
